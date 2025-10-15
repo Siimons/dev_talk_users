@@ -1,7 +1,6 @@
 from contextlib import asynccontextmanager
 from typing import AsyncGenerator
 
-from app.core.monitoring import setup_application_metrics
 from app.api.storage.database import Database
 from app.api.storage.redis import RedisManager
 
@@ -44,8 +43,6 @@ async def lifespan(app) -> AsyncGenerator[None, None]:
     Yields:
         None: Управление жизненным циклом.
     """
-    setup_application_metrics(app)
-
     await db.connect()
     await cache.connect()
 

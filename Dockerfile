@@ -1,5 +1,5 @@
 # -------- Stage 1: Build dependencies --------
-FROM python:3.12-slim as builder
+FROM python:3.12-slim AS builder
 
 # Install system packages required for building Python packages
 RUN apt-get update && apt-get install -y --no-install-recommends \
